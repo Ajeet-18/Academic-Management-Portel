@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty_Login Page</title>
+    <style>
+        body {
+            background-color: rgb(149, 208, 208);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 2vh;
+        }
+        #abv {font-weight: 300px;}
+        #asj {color: darkslateblue;}
+        form {
+            min-width: 300px;
+            margin: 4px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(188, 13, 13, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #su12 {
+            width: 40%;
+            
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        #loginForm {background-color: antiquewhite; }
+        #asj { font-weight: 300;
+        font-size: 22px;}
+    </style>
+</head>
+<body>
+    <img src="./photos/SUlogo.webp" alt="Sitare University" id="su12">
+    <!-- <p>Result of 1st and 3rd semeseter has been released. </p> -->
+    
+    <form id="loginForm">
+        <div>
+            <h3 id="asj" style="float: left; padding-right: 20px;">Score Entry Form <br><hr> Faculty Login page</h3>
+            <img src="./photos/teacher.svg" alt="std" width="70px">
+        </div>
+        <div>
+            <br>
+            <br>
+            <br>
+            <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="login()" >Login</button>
+        </div>
+        <!-- <a href="portal.html" id="abv">login</a> -->
+    </form>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Simple validation (in a real application, you would send the data to a server for validation)
+            if (username == 'kushal_shah' && password == 'sitare')
+             {
+                alert('Login successful!');
+                window.location.href = './form_link.html';
+            
+            }
+
+            else {
+                alert('Login failed. Please check your username and password.');
+            }
+        }
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
+</body>
+</html>

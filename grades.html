@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graded Result - Sitare University</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #gradedResultContainer {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4285f4;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h1>Graded Result -  Sem 3</h1>
+
+    <div id="gradedResultContainer">
+        <h2>Grades Summary</h2>
+        <table id="gradesTable">
+            <tr>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Semester</th>
+                <th>Python</th>
+                <th>Java</th>
+                <th>DBMS</th>
+                <th>DSA</th>
+                <th>Probability</th>
+                <th>English</th>
+            </tr>
+            <!-- Data will be dynamically added here -->
+        </table>
+    </div>
+
+    <script>
+        // Retrieve data from localStorage
+        const gradesData = JSON.parse(localStorage.getItem('gradesData')) || [];
+
+        // Display grades in the table
+        displayGrades();
+
+        function displayGrades() {
+            // Create a new table row for each set of grades
+            const table = document.getElementById('gradesTable');
+
+            for (let i = 0; i < gradesData.length; i++) {
+                const newRow = table.insertRow(-1);
+
+                // Insert cells with grade information
+                const cells = gradesData[i];
+                for (let j = 0; j < cells.length; j++) {
+                    const cell = newRow.insertCell(j);
+                    cell.textContent = cells[j];
+                }
+            }
+        }
+    </script>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitare University Academic Portal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: url(./formbg.jpg);
+        }
+        .note {
+            background-color: yellow;
+            border-radius: 5px;
+            position: relative;
+            text-align: center;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #formContainer {
+            max-width: 600px;
+            margin: 0 auto; /* Center the form */
+            border: 5px solid black;
+            box-shadow: #333;
+            background: rgba(165, 108, 52, 0.765);
+            
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #marksForm label {
+            background: rgb(42, 42, 42);
+            width: 110px;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4285f4;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2c75e6;
+        }
+        a {
+            background-color: yellow;
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: 700;
+            position: relative;
+            top: 10px;
+            left: 40%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Sitare University Academic Portal</h1>
+    <div class="note">
+        <p><b>Note:</b> Marks are to be entered out of 100 <br> <br>
+        * All fields are necessary</p>
+    </div>
+
+    <div id="formContainer">
+        <form id="marksForm">
+
+            <label for="StudentName">Student Name:</label>
+            <input type="text" id="StudentName" required>
+
+            <label for="StudentID">Student ID:</label>
+            <input type="text" id="StudentID" required>
+
+            <label for="Semester">Semester:</label>
+            <input type="text" id="Semester" required>
+
+            <label for="Python">Python:</label>
+            <input type="number" id="Python" min="0" max="100" required>
+
+            <label for="JAVA">Java:</label>
+            <input type="number" id="JAVA" min="0" max="100" required>
+
+            <label for="DBMS">DBMS:</label>
+            <input type="number" id="DBMS" min="0" max="100" required>
+
+            <label for="DSA">DSA:</label>
+            <input type="number" id="DSA" min="0" max="100" required>
+
+            <label for="Probability">Probability:</label>
+            <input type="number" id="Probability" min="0" max="100" required>
+
+            <label for="English">English:</label>
+            <input type="number" id="English" min="0" max="100" required>
+
+            <a href="./form_link.html" onclick="calculateGrades()">Submit</a>
+        </form>
+    </div>
+
+    <script>
+        function calculateGrades() {
+            // Retrieve form data
+            const StudentName = document.getElementById('StudentName').value;
+            const StudentID = document.getElementById('StudentID').value;
+            const Semester = document.getElementById('Semester').value;
+            const Python = parseInt(document.getElementById('Python').value);
+            const JAVA = parseInt(document.getElementById('JAVA').value);
+            const DBMS = parseInt(document.getElementById('DBMS').value);
+            const DSA = parseInt(document.getElementById('DSA').value);
+            const Probability = parseInt(document.getElementById('Probability').value);
+            const English = parseInt(document.getElementById('English').value);
+
+            // Calculate grades for each subject
+            const PythonGrade = calculateGrade(Python);
+            const JAVAGrade = calculateGrade(JAVA);
+            const DBMSGrade = calculateGrade(DBMS);
+            const DSAGrade = calculateGrade(DSA);
+            const ProbabilityGrade = calculateGrade(Probability);
+            const EnglishGrade = calculateGrade(English);
+
+            // Save grades data to localStorage
+            const gradesData = JSON.parse(localStorage.getItem('gradesData')) || [];
+            gradesData.push([StudentName, StudentID, Semester, PythonGrade, JAVAGrade, DBMSGrade, DSAGrade, ProbabilityGrade, EnglishGrade]);
+            localStorage.setItem('gradesData', JSON.stringify(gradesData));
+        }
+
+        function calculateGrade(score) {
+            if (score >= 90) {
+                return 'O';
+            } else if (score >= 80) {
+                return 'A+';
+            } else if (score >= 70) {
+                return 'A';
+            } else if (score >= 60) {
+                return 'B+';
+            } else if (score >= 50) {
+                return 'B';
+            } else if (score >= 40) {
+                return 'C';
+            } else if (score >= 25) {
+                return 'P';
+            } else {
+                return 'F';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

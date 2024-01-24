@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portal</title>
+    <style>
+        body {
+            display: inline-block;
+            margin: auto 3vw;
+            width: 94vw;
+            
+        }
+        .container {
+            display: grid;
+            gap: 10px;
+            width: 100%;
+            
+            grid-template-rows: repeat(3,auto);
+            grid-template-columns: max-content auto;
+        }
+        .box {
+            
+            border-radius: 7px;
+        }
+
+          /* box 1 */
+
+        .menu {
+            grid-row: span 3;
+            display: flex;
+            
+        }
+        .menu-container {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: #3498db;
+        border-radius: 5px;
+    }
+
+    .menu-option {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 5px;
+    color: #ecf0f1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    .menu-option img {
+        width: 60px;
+        
+        
+    }
+    .menu-option {
+        background:none;
+        
+    }
+    .menu-option p{
+        position: relative;
+        color: black;
+        bottom: 15px;
+        text-align: center;
+        
+    }
+    .menu-option:hover {
+      background-color: #dfe18676;
+    }
+
+        /* box 2 */
+
+    .header {
+        display: flex ;
+        font-size: 3rem;
+        color: white;
+        height: 100px;
+        background: rgb(245, 199, 199) url(./photos/morningbg.jpg);
+        border-radius: 7px;
+        align-items: center;
+    }
+    .header #head {
+        position: relative;
+        left: 10%;
+        
+    }
+
+       /* box 3 */
+
+    .notice {
+            height: fit-content;
+            background: url(./photos/backg1.jpg);
+            justify-content: center;
+            
+        }
+        .notice-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            
+            justify-content: space-around;
+        }
+
+        .notice-header h2 {
+            font-size: 3rem;
+            background: rgba(255, 255, 0, 0.626);
+            padding: 10px;
+            
+            border-radius: 50px;
+            height: fit-content;
+        }
+        
+        .announcement-container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      background-color: #3ce7e4;
+      padding: 10px;
+      border-radius: 7px;
+      
+    }
+
+    .announcement {
+      height: auto;
+      color: #fff;
+      display: flex;
+      transition: height 0.3s ease;
+      cursor: pointer;
+      
+      
+    }
+
+    .heading-box:hover {
+      height: 45px; /* Adjust the expanded height as needed */
+
+    }
+    .heading-box {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      position: relative;
+      width: 100%;
+      min-width: 180px;
+      height: fit-content;
+      padding: 10px;
+      
+      background-color: #3498db;
+      border: 2px solid white;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      
+      transition: opacity 0.2sec
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #2c3e50;
+      color: black;
+      border-radius: 0 0 5px 5px;
+      overflow: hidden;
+      
+    }
+    .heading-box:hover .dropdown-content {
+      display: block;
+      max-height: 1000px; /* Adjust the max-height as needed */
+      z-index: 5;
+      background: rgb(157, 230, 207);
+      margin-top: 7px;
+      padding: 10px;
+      border-radius: 7px;
+    }
+
+    
+
+       /* box 4 */
+
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      background: lightgoldenrodyellow;
+      border-radius: 5px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px 40px;
+      margin: 5px;
+      background-color: #3498db;
+      color: rgb(255, 255, 255);
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 1.3rem;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0px;
+    }
+
+    .box-container div {
+      height: 400px;
+      border-radius: 5px;
+      display: none;
+
+    }
+    .box-container div:first-child {
+        
+        height: 400px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    #semone { background-color: rgba(232, 229, 58, 0.568); width: 98%;}
+    #semtwo { background-color: #5def9a8f;  width: 98%;}
+    #semthree { background-color: rgba(53, 154, 221, 0.559);  width: 98%;}
+
+    .result {
+      position: relative;
+      width: 100%;
+      
+    }
+
+    .result iframe{
+      width: 100%;
+      height: 100%;
+    }
+
+    footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: auto;
+            z-index: 2;
+            height: fit-content;
+        }
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+        .linkbox a{
+            display: inline-block;
+            gap: 10px;
+            
+            height: 30px;
+        }
+        .linkbox a:nth-child(3) {
+            height: 50px;
+            position: relative;
+            bottom: 10px;
+        }
+        .linkbox :nth-child(1),:nth-child(2) {
+            vertical-align: 40px;
+        }
+        .copyright {
+            position: relative;
+            bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box menu">
+            <div class="menu-container">
+                <div class="menu-option"><img src="./photos/profile2.svg" alt="profile"><p>Profile</p></div>
+                <div class="menu-option"><img src="./photos/menu.svg" alt="menu"><p>menu</p></div>
+                <div class="menu-option"><img src="./photos/settings.svg" alt="setting"><p>settings</p></div>
+                <div class="menu-option">Option 4</div>
+                <!-- Add more menu options as needed -->
+            </div>
+        </div>
+        <div class="box header">
+            <div id="head">Welcome, Harsh</div>
+        </div>
+        <div class="box notice">
+            <div class="notice-header">
+                <h2>Announcements</h2>
+                <div class="img"><img src="./photos/announce.png" alt="img" width=300px"></div>
+            </div>
+            <hr>
+            <div class="announcement-container">
+                <div class="announcement">
+                    <div class="heading-box">
+                        <span>ITC</span>
+                        <div class="dropdown-content">
+                          <div>There are no announcements to display.
+                            My To Do List
+                            Overdue
+                            12
+                            Quiz 04-09-2023
+                            Due 4 Sep Intelligent Machines
+                            A2 numpy basics
+                            Due 12 Sep Introduction to Data Science
+                            Assignment 1: Attachment styles and answering the prompts
+                            Due 15 Sep Universal Human Values - 2
+                            Assignment 2: Fill up the egogram and a brief description of how each ego state comes up for you
+                            Due 15 Sep Universal Human Values - 2
+                            Assignment 3: Life position chart
+                            Due 22 Sep Universal Human Values - 2
+                            A3 Pandas
+                            Due 27 Sep Introduction to Data Science
+                            View All Work</div>
+                          <!-- Add more options as needed -->
+                        </div>
+                      </div>
+                </div>
+                <div class="announcement">
+                    <div class="heading-box">
+                        <span>Python</span>
+                        <div class="dropdown-content">
+                          <div>There are no announcements to display.
+                            My To Do List
+                            Overdue
+                            12
+                            Quiz 04-09-2023
+                            Due 4 Sep Intelligent Machines
+                            A2 numpy basics
+                            Due 12 Sep Introduction to Data Science
+                            Assignment 1: Attachment styles and answering the prompts
+                            Due 15 Sep Universal Human Values - 2
+                            Assignment 2: Fill up the egogram and a brief description of how each ego state comes up for you
+                            Due 15 Sep Universal Human Values - 2
+                            Assignment 3: Life position chart
+                            Due 22 Sep Universal Human Values - 2
+                            A3 Pandas
+                            Due 27 Sep Introduction to Data Science
+                            View All Work</div>
+                          <!-- Add more options as needed -->
+                        </div>
+                      </div>
+                </div>
+                <div class="announcement">
+                    <div class="heading-box">
+                        <span>English & Communication</span>
+                        <div class="dropdown-content">
+                          <div>There are no announcements to display.
+                            My To Do List
+                            Overdue
+                            12
+                            Quiz 04-09-2023
+                            Due 4 Sep Intelligent Machines
+                            A2 numpy basics
+                            Due 12 Sep Introduction to Data Science
+                            Assignment 1: Attachment styles and answering the prompts
+                            Due 15 Sep Universal Human Values - 2
+                            Assignment 2: Fill up the egogram and a brief description of how each ego state comes up for you
+                            Due 15 Sep Universal Human Values - 2
+                            Assignment 3: Life position chart
+                            Due 22 Sep Universal Human Values - 2
+                            A3 Pandas
+                            Due 27 Sep Introduction to Data Science
+                            View All Work</div>
+                          <!-- Add more options as needed -->
+                        </div>
+                    </div>
+            
+            
+                </div>
+                <p style="color: white;"><b>NOTE:</b> Bring the cursor on subject to see any announcement</p>
+            </div>
+        
+            <div class="box data">
+            <div class="button-container">
+                <button onclick="showBox('one')">Sem 1</button>
+                <button onclick="showBox('two')">Sem 2</button>
+                <button onclick="showBox('three')">Sem 3</button>
+              </div>
+              
+              <div class="box-container">
+                <div id="semone">
+                  
+                </div>
+                <div id="semtwo">
+              
+                </div>
+                <div id="semthree">
+                  <div class="result">
+                    <iframe src="./grades.html" frameborder="5px"></iframe>
+                  </div>
+                </div>
+              </div>
+              
+              <script>
+                function showBox(number) {
+                  // Hide all boxes
+                  document.getElementById('semone').style.display = 'none';
+                  document.getElementById('semtwo').style.display = 'none';
+                  document.getElementById('semthree').style.display = 'none';
+              
+                  // Show the selected box
+                  document.getElementById('sem' + number).style.display = 'block';
+                }
+              </script>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <div class="linkbox">
+              <a href="#"><img src="../Academic-Management-Portel/photos/contact.jpg" alt="conact" width="100px"></a>
+            <a href="#" target="_blank"><img src="../Academic-Management-Portel/photos/insta.jpg" alt="insta" width="100px"></a>
+            <a href="#" target="_blank"><img src="../Academic-Management-Portel/photos/linked.webp" alt="linkedin" width="50px" style="padding: 20px;
+              font-size: 50px;
+              width: 50px;
+              
+              text-decoration: none;
+              border-radius: 50%;"></a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2023 Sitare Academic Portal. <br><br> All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
